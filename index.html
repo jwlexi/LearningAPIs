@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+      <input type="text" id = "userInput">
+      <button> Search Movie! </button>
+      <div id = "movie"> 
+          <div>
+    <script> 
+    var url = "https://www.omdbapi.com/?apikey=12215ee6&s=spiderman";
+    getData();
+    async function getData(){
+    let response = await fetch(url);
+    let apiData = await response.json();
+    document.querySelector("#movie").innerHTML = `<h3> ${apiData["Search"][0]["Title"]} </h3>
+        <img src="${apiData.Search[0].Poster}">
+        ` ;
+      }
+    </script>
+  </body>
+</html>
